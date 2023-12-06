@@ -2,14 +2,28 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const ModalAddNew = (props) => {
-    const { handleClose } = props;
+    const { show, handleClose } = props;
     return (
         <>
-            <Modal show={true} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Add new user</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+                    <div className='body-add-new'>
+                        <form>
+                            <div className="mb-3">
+                                <label className="form-label">Name</label>
+                                <input type="text" className="form-control" />
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">job</label>
+                                <input type="text" className="form-control" />
+                            </div>
+
+                        </form>
+                    </div>
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
@@ -19,7 +33,8 @@ const ModalAddNew = (props) => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+
         </>
     )
 }
-export default ModalAddNew
+export default ModalAddNew;
